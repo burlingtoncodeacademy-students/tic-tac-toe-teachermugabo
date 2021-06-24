@@ -20,6 +20,10 @@ main {
     justify-content: center;
 }
 
+section {
+    text-align: center;
+}
+
 footer { 
     grid-area: footer;
     background-color: coral;
