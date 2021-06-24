@@ -11,14 +11,18 @@
 
 header {
     grid-area: header;
+    background-color: blanchedalmond;
 }
 
 main {
     grid-area: main;
+    background-color: burlywood;
+    justify-content: center;
 }
 
 footer { 
     grid-area: footer;
+    background-color: coral;
 }
 
 
@@ -31,4 +35,12 @@ box {
 /* ------- Utility Classes --------- */
 .black {
     background-color: black;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right
 }
