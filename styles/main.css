@@ -12,8 +12,12 @@
 header {
     grid-area: header;
     background-color: blanchedalmond;
+    text-align: center;
 }
 
+h1 {
+    /* text-align: center; */
+}
 main {
     grid-area: main;
     background-color: burlywood;
