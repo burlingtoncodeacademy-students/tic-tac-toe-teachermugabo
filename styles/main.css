@@ -24,6 +24,10 @@ section {
     text-align: center;
 }
 
+.buttons {
+    clear: left;
+}
+
 footer { 
     grid-area: footer;
     background-color: coral;
@@ -36,6 +40,12 @@ box {
     width: 200px;
     height: 200px;
 }
+
+.board {
+    width: 400px;
+    height: 400px;
+}
+
 /* ------- Utility Classes --------- */
 .black {
     background-color: black;
