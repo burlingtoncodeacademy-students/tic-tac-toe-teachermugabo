@@ -5,19 +5,24 @@
     grid-template-rows: 1fr 5fr 1fr;
     grid-template: 
     "header header header"
-    ". main ."
+    "nav main ."
     "footer footer footer";
 }
 
 header {
     grid-area: header;
     background-color: blanchedalmond;
-    text-align: center;
-}
-
-h1 {
     /* text-align: center; */
 }
+
+nav {
+    grid-area: nav;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
 main {
     grid-area: main;
     background-color: burlywood;
@@ -30,6 +35,7 @@ section {
 
 .buttons {
     clear: left;
+    margin-bottom: 5px;
 }
 
 footer { 
