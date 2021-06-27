@@ -1,4 +1,6 @@
+/* adding google fonts: https://www.w3schools.com/css/css_font_google.asp */
 @import url("https://fonts.googleapis.com/css?family=Audiowide");
+
 body {
     font-family: "Audiowide", sans-serif;
 }
