@@ -65,34 +65,29 @@ box {
 .game-container {
     display: flex;
     flex-direction: column;
-    /* position: relative; */
-    /* justify-content: center; */
     align-items: center;
     justify-content:space-around;
 }
-
 
 .board {
     display: grid;
     width: 300px;
     height: 300px;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    /* justify-content:center; */
+    /* align-items: center; */
 }
 
+/* make each box flex to center x/o */
 .block {
     border: 3px solid honeydew;    
     font-size: 3rem;
     font-weight: bold;
     color: honeydew;
-    /* 
-    TO UNDERSTAND: 
-        Objective: center text in the 100x100px block
-        Issue: boxes grows when text's added
-        Positioning didn't work. Tried making
-        .game-container relative & .blocks absolute
-        Messed up the whole grid. 
-        
-        position: absolute; */
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
 }
 
 #block1,
