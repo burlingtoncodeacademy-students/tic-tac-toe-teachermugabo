@@ -1,4 +1,7 @@
-/* adding google fonts: https://www.w3schools.com/css/css_font_google.asp */
+/* adding google fonts: 
+    https://www.w3schools.com/css/css_font_google.asp
+    https://stackoverflow.com/questions/147500/is-it-possible-to-include-one-css-file-in-another
+ */
 @import url("https://fonts.googleapis.com/css?family=Audiowide");
 
 body {
@@ -50,7 +53,6 @@ section {
     width: 300px;
     margin: 5px;
     justify-content: space-around;
-    /* column-gap: 3px; */
 }
 
 button {
@@ -73,12 +75,17 @@ footer {
 
 .board {
     display: grid;
+    /* how can we make this flexible? */
     width: 300px;
     height: 300px;
     grid-template-columns: 1fr 1fr 1fr;
+    /* grid-template-columns: 
+        repeat(3,
+        minmax(50px, 1fr)); */
     grid-template-rows: 1fr 1fr 1fr;
-    /* justify-content:center; */
-    /* align-items: center; */
+    /* grid-template-rows: 
+        repeat(3,
+        minmax(50px, 1fr)); */
 }
 
 /* make each box flex to center x/o */
