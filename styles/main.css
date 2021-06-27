@@ -80,6 +80,16 @@ footer {
     align-items: center;
 }
 
+.block:hover {
+    cursor:pointer;
+    background-color:rgb(128, 79, 4);
+}
+
+.occupied:hover {
+    cursor:initial;
+    background-color: black;
+}
+
 #block1,
 #block2,
 #block3 {
