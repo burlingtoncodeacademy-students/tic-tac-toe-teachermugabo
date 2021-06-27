@@ -1,3 +1,7 @@
+body {
+    /* margin: 0; */
+}
+
 /* --------- Flex container --------- */
 .container {
     display: grid;
@@ -34,8 +38,15 @@ section {
 }
 
 .buttons {
-    clear: left;
-    margin-bottom: 5px;
+    display: flex;
+    width: 300px;
+    margin: 5px;
+    justify-content: space-around;
+    /* column-gap: 3px; */
+}
+
+button {
+    width: 70px;
 }
 
 footer { 
@@ -43,17 +54,69 @@ footer {
     background-color: coral;
 }
 
-
-
 box {
     display: inline-block;
     width: 200px;
     height: 200px;
 }
 
+/* -------- Game Board -------- */
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    /* position: relative; */
+    /* justify-content: center; */
+    align-items: center;
+    justify-content:space-around;
+}
+
+
 .board {
-    width: 400px;
-    height: 400px;
+    display: grid;
+    width: 300px;
+    height: 300px;
+    grid-template-columns: auto auto auto;
+}
+
+.block {
+    border: 3px solid honeydew;    
+    font-size: 3rem;
+    font-weight: bold;
+    color: honeydew;
+    /* 
+    TO UNDERSTAND: 
+        Objective: center text in the 100x100px block
+        Issue: boxes grows when text's added
+        Positioning didn't work. Tried making
+        .game-container relative & .blocks absolute
+        Messed up the whole grid. 
+        
+        position: absolute; */
+}
+
+#block1,
+#block2,
+#block3 {
+    border-top: none;
+}
+
+#block1,
+#block4,
+#block7 {
+    border-left: none;
+}
+
+#block3,
+#block6,
+#block9 {
+    border-right: none;
+}
+
+#block7,
+#block8,
+#block9 {
+    border-bottom: none;
 }
 
 /* ------- Utility Classes --------- */
@@ -68,3 +131,8 @@ box {
 .right {
     float: right
 }
+
+/* ------- Media Screens ------- */
+/* TODO for mobile, turn board to grid w/
+    flexible dimensions that are % of width
+ */

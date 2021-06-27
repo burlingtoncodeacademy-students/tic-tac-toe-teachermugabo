@@ -17,19 +17,32 @@
       <a href="/multi-player.html">Multi Player</a>
     </nav>
     <main>
-      <section>
+      <section class="game-container">
         <h2>Single Player</h2>
-        <box class="black board"></box>
+        <div class="black board">
+          <!-- top row 1 2 3 -->
+          <div class="block" id="block1"></div>
+          <div class="block" id="block2"></div>
+          <div class="block" id="block3"></div>
+          <!-- mid row 4 5 6 -->
+          <div class="block" id="block4"></div>
+          <div class="block" id="block5"></div>
+          <div class="block" id="block6"></div>
+          <!-- bottom row 7 8 9 -->
+          <div class="block" id="block7"></div>
+          <div class="block" id="block8"></div>
+          <div class="block" id="block9"></div>
+        </div>
         <div class="buttons">
           <button>Start</button>
-          <button>Reset</button>
-          <button>Replay</button>
+          <button disabled>Reset</button>
+          <button disabled>Replay</button>
         </div>
       </section>
     </main>
 
     <footer>
-      <p>Tic Tac Toe, Inc (Copyleft) 2021</p>
+      <p>Tic Tac Toe, Inc (Copyleft) 2021 - Absolutely No Rights Reserved.</p>
       <p>Teacher Mugabo @teachermugabo</p>
     </footer>
   </div>
