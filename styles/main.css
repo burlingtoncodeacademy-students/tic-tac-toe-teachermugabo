@@ -1,8 +1,5 @@
-body {
-    /* margin: 0; */
-}
-
 /* --------- Flex container --------- */
+
 .container {
     display: grid;
     grid-template-columns: 1fr 4fr 1fr;
@@ -16,7 +13,6 @@ body {
 header {
     grid-area: header;
     background-color: blanchedalmond;
-    /* text-align: center; */
 }
 
 nav {
@@ -52,12 +48,6 @@ button {
 footer { 
     grid-area: footer;
     background-color: coral;
-}
-
-box {
-    display: inline-block;
-    width: 200px;
-    height: 200px;
 }
 
 /* -------- Game Board -------- */
