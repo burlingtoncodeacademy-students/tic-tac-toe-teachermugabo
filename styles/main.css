@@ -8,8 +8,7 @@ body {
     font-family: "Audiowide", sans-serif;
 }
 
-/* --------- Flex container --------- */
-
+/* TODO what does this do? where is it? */
 .container {
     display: grid;
     grid-template-columns: 1fr 4fr 1fr;
@@ -20,11 +19,13 @@ body {
     "footer footer footer";
 }
 
+/* Page header */
 header {
     grid-area: header;
     background-color: blanchedalmond;
 }
 
+/* Site's side navigation */
 nav {
     grid-area: nav;
     display: flex;
@@ -34,20 +35,33 @@ nav {
     font-size: 1.5rem;
 }
 
+/* Side nav's links */
 nav>a {
     background-color: khaki;
 }
 
+/* Site's main sections  */
 main {
     grid-area: main;
     background-color: burlywood;
     justify-content: center;
 }
 
+/* TODO what's this exactly? Sections of the main section :-) */ */
 section {
     text-align: center;
 }
 
+/* Site footer */
+footer {
+    grid-area: footer;
+    background-color: coral;
+}
+
+
+/* ------------- BUTTONS ----------------- */
+
+/* Styling container for the game buttons  */
 .buttons {
     display: flex;
     width: 300px;
@@ -55,17 +69,14 @@ section {
     justify-content: space-around;
 }
 
+/* actual game buttons */
 button {
     width: 70px;
 }
 
-footer { 
-    grid-area: footer;
-    background-color: coral;
-}
-
 /* -------- Game Board -------- */
 
+/* Game container - has title, board, and buttons  */
 .game-container {
     display: flex;
     flex-direction: column;
@@ -73,6 +84,7 @@ footer {
     justify-content:space-around;
 }
 
+/* Game board  */
 .board {
     display: grid;
     /* how can we make this flexible? */
@@ -88,7 +100,7 @@ footer {
         minmax(50px, 1fr)); */
 }
 
-/* make each box flex to center x/o */
+/* styling for board cells */
 .block {
     border: 3px solid honeydew;    
     font-size: 3rem;
@@ -99,16 +111,20 @@ footer {
     align-items: center;
 }
 
+/* Indicate on cells that action can be taken  */
 .block:hover {
     cursor:pointer;
     background-color:rgb(128, 79, 4);
 }
 
+/* indication 'no action' on occupied/filled cells  */
 .occupied:hover {
     cursor:initial;
     background-color: black;
 }
 
+
+/* Style tic tac toe board - remove all side borders  */
 #block1,
 #block2,
 #block3 {
