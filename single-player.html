@@ -19,6 +19,7 @@
     <main>
       <section class="game-container">
         <h2>Single Player</h2>
+        <h3 id="status">Click Start to Play</h3>
         <div class="black board">
           <!-- top row 1 2 3 -->
           <div class="block" id="block1"></div>
@@ -34,9 +35,9 @@
           <div class="block" id="block9"></div>
         </div>
         <div class="buttons">
-          <button>Start</button>
-          <button disabled>Reset</button>
-          <button disabled>Replay</button>
+          <button id="startBtn">Start</button>
+          <button id="resetBtn" disabled>Reset</button>
+          <button id="replayBtn" disabled>Replay</button>
         </div>
       </section>
     </main>
@@ -45,6 +46,7 @@
       <p>Tic Tac Toe, Inc (Copyleft) 2021 - Absolutely No Rights Reserved.</p>
       <p>Teacher Mugabo @teachermugabo</p>
     </footer>
+    <script src="scripts/main.js"></script>
   </div>
 </body>
 </html>
