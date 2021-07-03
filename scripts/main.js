@@ -172,8 +172,8 @@ const checkWinCondition = () => {
         // player 'O' wins - condition: sum of board line equals -3
         else if (sumBoardLine(line, gameState) === PLAYER_O_STATE * 3) {
             // And the app says "Congratulations! Player O wins!"
-            gameStatus.textContent = 'Congrats! Player O wins'
             alert(gameStatus.textContent) // alert players of winner
+            gameStatus.textContent = 'Congrats! Player O wins' // update game status
 
             // Then the system draws a line through the winning three cells
             endGame(line) // Game Ends
@@ -184,7 +184,7 @@ const checkWinCondition = () => {
     // check if board is full - declare draw & end game
     console.log("check if the board is full.")
     if (isBoardFull()) {
-        gameStatus.textContent = "Draw! Replay?" // we have a draw
+        gameStatus.textContent = "Draw! Replay?"  // update game status
         // alert(gameStatus.textContent)
 
         endGame()
@@ -250,8 +250,6 @@ const clearBoardCells = () => {
  * 
  * This method is used to determine win conditions.
  * 
- * TODO:  Resolve the gameState is undefined error.
- * 
  * @param {[#,#,#]} line 
  * @param {[
         [#,#,#],
@@ -264,13 +262,7 @@ const sumBoardLine = (line, gameState) => {
     // console.log('inside sumBoardLine, lines=', lines)
     return line
         // board cells run 1-9, gameState indices 0-8
-        // ! Uncaught TypeError: gameState is undefined
         .map(cell => gameState[cell]) 
         // return board cells sum
         .reduce((sum,score) => sum += score)
 }
-
-console.log(sumBoardLine([0,0,0]),'000 => 0')
-console.log(sumBoardLine([0,1,0]),'010 => 1')
-console.log(sumBoardLine([1,0,1]),'101 => 2')
-console.log(sumBoardLine([1,1,1]),'111 => 3')
