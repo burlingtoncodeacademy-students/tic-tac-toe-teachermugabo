@@ -1,5 +1,6 @@
 /* ----------- GAME STORIES IMPLEMENTATION PROGRESS ------------- */
 
+// TODO: Story: TDD -- in another life time perhaps
 // Story: No Rules [done]
 // Story: Rules [done]
 // Story: Winning Condition [done]
