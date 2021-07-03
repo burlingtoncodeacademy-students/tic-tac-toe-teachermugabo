@@ -1,4 +1,4 @@
-/* ------------ GAME IMPLEMENTATION NOTES ------------------- */
+/* ----------- GAME STORIES IMPLEMENTATION PROGRESS ------------- */
 
 // Story: No Rules [done]
 // Story: Rules [done]
