@@ -15,10 +15,15 @@
 // Story: Start Game [done]
 // =====================
 // Given an empty board & init game variables
-// potentially use 1 for 'X', and 0 for 'O', and
-// that way, sum of 0 is win for 'O', and 
-// sum of 3 is win for 'X'
-let gameState = []
+
+// 3x3 matrix to represent game state
+// Player moves will be represented with 
+// PLAYER_O_STATE and PLAYER_X_STATE. 
+let gameState = [
+    [0,0,0],
+    [0,0,0],
+    [0,0,0]
+]
 
 // values to represent players moves in gameState
 const PLAYER_O_STATE = -1
@@ -151,12 +156,12 @@ let boardLines = [
  * @param uses global param gameState
  */
 const checkWinCondition = () => {
-    console.log("entering checkwincondition...")
-    // When if there are three Xs in a row, column, or diagonal
+    console.log("check for win condition...")
+    // check for winning condition - if there are three Xs in a row, column, or diagonal
     for(let line of boardLines) {
         
         // player 'X' wins - condition: sum of board line equals 3
-        if (sumBoardLine(line) === PLAYER_X_STATE * 3) {
+        if (sumBoardLine(line, gameState) === PLAYER_X_STATE * 3) {
             // And the app says "Congratulations! Player X wins!"
             gameStatus.textContent = 'Congrats! Player X wins'
             alert(gameStatus.textContent) // alert players of winner
@@ -165,7 +170,7 @@ const checkWinCondition = () => {
             endGame(line) // Game Ends
         }
         // player 'O' wins - condition: sum of board line equals -3
-        else if (sumBoardLine(line) === PLAYER_O_STATE * 3) {
+        else if (sumBoardLine(line, gameState) === PLAYER_O_STATE * 3) {
             // And the app says "Congratulations! Player O wins!"
             gameStatus.textContent = 'Congrats! Player O wins'
             alert(gameStatus.textContent) // alert players of winner
@@ -175,11 +180,32 @@ const checkWinCondition = () => {
         }
         // else, game continues
     }
+
+    // check if board is full - declare draw & end game
+    console.log("check if the board is full.")
+    if (isBoardFull()) {
+        gameStatus.textContent = "Draw! Replay?" // we have a draw
+        // alert(gameStatus.textContent)
+
+        endGame()
+    }
+}
+
+const isBoardFull = () => {
+    // if any cells are empty
+    for(let cell of cells ) {
+        if (cell.textContent === '') return false
+    }
+    
+    // otherwise return true
+    return true;
 }
 
 const endGame = (line)  => {
+    // highlight winning line, if there is one.     
+    // if (line) highlightLine(line) 
+
     gameOver = true // set global indicator to true
-    // highlightLine(line) // highlight winning line    
     replayBtn.disabled = false // enable replay button
 }
 
@@ -197,6 +223,7 @@ replayBtn.addEventListener("click", (event) => {
 
     // TODO Second: start game
     // ? is startBtn.click() possible?
+    gameStatus.textContent = "Player X's turn"
 })
 
 /**
@@ -223,6 +250,8 @@ const clearBoardCells = () => {
  * 
  * This method is used to determine win conditions.
  * 
+ * TODO:  Resolve the gameState is undefined error.
+ * 
  * @param {[#,#,#]} line 
  * @param {[
         [#,#,#],
@@ -235,7 +264,8 @@ const sumBoardLine = (line, gameState) => {
     // console.log('inside sumBoardLine, lines=', lines)
     return line
         // board cells run 1-9, gameState indices 0-8
-        .map(line => gameState[line]) 
+        // ! Uncaught TypeError: gameState is undefined
+        .map(cell => gameState[cell]) 
         // return board cells sum
         .reduce((sum,score) => sum += score)
 }
