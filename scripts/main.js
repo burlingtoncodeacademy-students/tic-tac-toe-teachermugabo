@@ -5,9 +5,10 @@
 // Story: Winning Condition [done]
 // Story: Reset [done]
 // Story: Replay [done]
-// Story: Multiplayer [done?] -- this is the default
-// Story: Names [not started]
-// Story: Single-player [not started] -- random computer
+// TODO: Story: Multiplayer [done?] -- move functionality to multi-player.html
+// TODO: Story: Names [not started]
+// TODO: Story: Single-player [not started] -- random computer
+// TODO: Story: Timer [not started]
 
 
 /* -------------- GENERAL GUIDING WISDOM ------------------- */
