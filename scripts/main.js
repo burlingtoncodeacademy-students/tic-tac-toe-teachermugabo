@@ -49,14 +49,58 @@ let replayBtn = document.getElementById('replayBtn')
 replayBtn.disabled = "true"
 
 
-// When the user clicks 'Start Game'
-startBtn.addEventListener('click', (event) => {
+/**
+ * Name: Start Game
+ * 
+ * Sets the state for starting a new game.
+ * 
+ * When the user
+ * @param {*} event 
+ */
+const startGame = (event) => {
     // Then the 'Start Game' button is disabled ("grayed out")
     startBtn.disabled = "true"
 
     // And the status area contains "Player X's turn
     gameStatus.textContent = "Player X's turn"
+}
+
+// When the user clicks 'Start Game'
+startBtn.addEventListener('click', startGame)
+
+
+/**
+ * Handler to replay the game
+ * Combines the functionality of resetBtn & startBtn
+ */
+ replayBtn.addEventListener("click", (event) => {
+    gameReset(event) // // First, reset the game
+
+    // ? is startBtn.click() possible?
+    gameStatus.textContent = "Player X's turn" // // player X starts firsts
+    replayBtn.disabled = "true"
 })
+
+
+/**
+ * Name: gameReset
+ * Resets game state and clears the board.
+ * 
+ * @param {*} event 
+ */
+const gameReset = (event) => {
+    // ? is resetBtn.click() possible?
+    gameState = [] // clear game state
+    clearBoardCells() // clear the board
+    startBtn.disabled = true // disable start button
+    resetBtn.disabled = true // disable reset button
+    gameOver = false // set game is over to false
+
+    gameStatus.textContent = "Player X's turn"  // player X starts firsts
+}
+
+// When user clicks 'Reset'
+resetBtn.addEventListener("click", gameReset)
 
 
 // Story: No Rules [done]
@@ -71,7 +115,10 @@ for(let cell of cells) {
         let cell = event.target
 
         // check if game has started
-        if( startBtn.disabled) {
+        if( startBtn.disabled ) {
+
+            // once game starts, make sure resetBtn is enabled.
+            if ( resetBtn.disabled ) resetBtn.disabled = false
 
             // check if game isn't over yet
             if (gameOver) {
@@ -206,25 +253,10 @@ const endGame = (line)  => {
     // if (line) highlightLine(line) 
 
     gameOver = true // set global indicator to true
+
+    resetBtn.disabled = true // disable reset button
     replayBtn.disabled = false // enable replay button
 }
-
-/**
- * Handler to replay the game
- * Combines the functionality of resetBtn & startBtn
- */
-replayBtn.addEventListener("click", (event) => {
-    // First, reset the game
-    // ? is resetBtn.click() possible?
-    gameState = [] // clear game state
-    clearBoardCells() // clear the board
-    startBtn.disabled = true // disable start button
-    gameOver = false // set game is over to false
-
-    // TODO Second: start game
-    // ? is startBtn.click() possible?
-    gameStatus.textContent = "Player X's turn"
-})
 
 /**
  * Name: clearBoardCells
