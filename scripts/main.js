@@ -62,51 +62,11 @@ const PLAYER_O_STATE = -1
 const PLAYER_X_STATE = 1
 
 
-/* ------------ INITIALIZE GAME STATE & UI --------------- */
-
-/**
- * Name: clearBoardCells
- * =====================
- * Iterates thru board cells and sets them to empty string
- * * Operates on the Global variable cells
- * 
- * @param none
- * @returns none
- */
- const clearBoardCells = () => {
-    for(let cell of cells) {
-        cell.textContent = ''
-    }
-}
-
-/**
- * Name: initGame
- * ==============
- * Initialize game state
- */
- const initGame = () => {
-    // console.log("entering init game")
-
-    gameStatus.textContent = "Click Start to Play" // init game status
-    gameState = [  // clear game state
-        [0,0,0],
-        [0,0,0],
-        [0,0,0]] 
-    clearBoardCells() // clear the board
-
-    // enable start button, disable the rest. 
-    if( startBtn.disabled ) startBtn.disabled = false
-    resetBtn.disabled = "true" // disabled 
-    replayBtn.disabled = "true" // disabled
-}
-
-initGame() // init game & board on page load
-
 /* ------------ USER ACTIONS IMPLEMENTATION --------------- */
 
 /**
  * Name: Start Game
- * 
+ * =================
  * Sets the state for starting a new game.
  * 
  * When the user
@@ -132,6 +92,7 @@ initGame() // init game & board on page load
 
 /**
  * Name: gameReset
+ * ================
  * Resets game state and clears the board, 
  * and prepares board for next game.
  * Player is invite to Start the game.
@@ -202,8 +163,6 @@ resetBtn.addEventListener("click", gameReset)
 for(let cell of cells) {
     cell.addEventListener('click', selectCell)
 }
-
-
 
 /* ------------ GAME HELPER FUNCTIONS ------------------- */
 
@@ -291,6 +250,13 @@ const checkWinCondition = () => {
     }
 }
 
+/**
+ * Name: isBoardFull
+ * =================
+ * Predicate function to check whether all board cells are filled.
+ * 
+ * @returns {Boolean} 
+ */
 const isBoardFull = () => {
     // if any cells are empty
     for(let cell of cells ) {
@@ -343,3 +309,41 @@ const sumBoardLine = (line, gameState) => {
         // return board cells sum
         .reduce((sum,score) => sum += score)
 }
+
+/**
+ * Name: clearBoardCells
+ * =====================
+ * Iterates thru board cells and sets them to empty string
+ * * Operates on the Global variable cells
+ * 
+ * @param none
+ * @returns none
+ */
+ const clearBoardCells = () => {
+    for(let cell of cells) {
+        cell.textContent = ''
+    }
+}
+
+/**
+ * Name: initGame
+ * ==============
+ * Initialize game state
+ */
+ const initGame = () => {
+    // console.log("entering init game")
+
+    gameStatus.textContent = "Click Start to Play" // init game status
+    gameState = [  // clear game state
+        [0,0,0],
+        [0,0,0],
+        [0,0,0]] 
+    clearBoardCells() // clear the board
+
+    // enable start button, disable the rest. 
+    if( startBtn.disabled ) startBtn.disabled = false
+    resetBtn.disabled = "true" // disabled 
+    replayBtn.disabled = "true" // disabled
+}
+
+initGame() // init game & board on page load & let the games begin!!
