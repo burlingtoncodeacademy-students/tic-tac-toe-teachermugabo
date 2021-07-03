@@ -91,7 +91,7 @@ const PLAYER_X_STATE = 1
 }
 
 /**
- * Name: gameReset
+ * Name: resetGame
  * ================
  * Resets game state and clears the board, 
  * and prepares board for next game.
@@ -99,7 +99,7 @@ const PLAYER_X_STATE = 1
  * 
  * @param {*} event 
  */
-const gameReset = (event) => {
+const resetGame = (event) => {
     initGame()
 }
 
@@ -148,20 +148,14 @@ const selectCell = (event) => {
 }
 
 
-/* ------------ USER ACTION HANDLERS --------------------- */
+/* ------------ ADD USER ACTION HANDLERS ------------------ */
 
-// When the user clicks 'Start Game'
-startBtn.addEventListener('click', startGame)
+startBtn.addEventListener("click", startGame) // When the user clicks 'Start Game'
+replayBtn.addEventListener("click", replayGame) // When the user clicks 'Replay'
+resetBtn.addEventListener("click", resetGame) // When user clicks 'Reset'
 
-// When the user clicks 'Replay'
-replayBtn.addEventListener("click", replayGame)
-
-// When user clicks 'Reset'
-resetBtn.addEventListener("click", gameReset)
-
-// When the user selects a cell
 for(let cell of cells) {
-    cell.addEventListener('click', selectCell)
+    cell.addEventListener('click', selectCell) // When the user selects a cell
 }
 
 /* ------------ GAME HELPER FUNCTIONS ------------------- */
