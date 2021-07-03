@@ -154,10 +154,9 @@ const checkWinCondition = () => {
     console.log("entering checkwincondition...")
     // When if there are three Xs in a row, column, or diagonal
     for(let line of boardLines) {
-        // player 'X' wins
+        
+        // player 'X' wins - condition: sum of board line equals 3
         if (sumBoardLine(line) === PLAYER_X_STATE * 3) {
-        // if(isPlayerXWinner(line)) {
-
             // And the app says "Congratulations! Player X wins!"
             gameStatus.textContent = 'Congrats! Player X wins'
             alert(gameStatus.textContent) // alert players of winner
@@ -165,10 +164,8 @@ const checkWinCondition = () => {
             // Then the system draws a line through the winning three cells
             endGame(line) // Game Ends
         }
-        // player 'O' wins
+        // player 'O' wins - condition: sum of board line equals -3
         else if (sumBoardLine(line) === PLAYER_O_STATE * 3) {
-        // else if (isPlayerOWinner(line)) {
-            
             // And the app says "Congratulations! Player O wins!"
             gameStatus.textContent = 'Congrats! Player O wins'
             alert(gameStatus.textContent) // alert players of winner
@@ -176,7 +173,7 @@ const checkWinCondition = () => {
             // Then the system draws a line through the winning three cells
             endGame(line) // Game Ends
         }
-        // TODO: handle else
+        // else, game continues
     }
 }
 
@@ -218,43 +215,23 @@ const clearBoardCells = () => {
 }
 
 /**
- * Name: isPlayerXWinner
- * =====================
- * Predicate to check whether a line is won by player X
- * Since gameState stores 1s for player X's moves, a
- * line that adds up to 3 is a win for Player X.
- * 
- * @param {[Number,Number,Number]} line
- * @returns did player X win? :boolean
- */
-const isPlayerXWinner = (line) => {
-    let sum = sumBoardLine(line)
-    // console.log("board sum: ", sum)
-    return sum === 3
-}
-
-/**
- * Name: isPlayerOWinner
- * =====================
- * Predicate to check whether a line is won by player O
- * Since gameState stores -1 for player O's moves, a
- * line that adds up to -3 is a win for player O
- * 
- * @param {[Number,Number,Number]} line 
- * @returns did player O win? :boolean
- */
-const isPlayerOWinner = (line) => 
-    sumBoardLine(line) === -3 
-
-/**
  * Name: sumBoardLine
  * =====================
- * Given array of 3 board coordinates
- * ! Note dependence on global variable gameState
- * @param {[Number,Number,Number]} line 
+ * Given any board line (see var: boardLines) and the
+ * gameState (3x3 matrix), map the line to the game state, 
+ * and return sum of corresponding board cells. 
+ * 
+ * This method is used to determine win conditions.
+ * 
+ * @param {[#,#,#]} line 
+ * @param {[
+        [#,#,#],
+        [#,#,#],
+        [#,#,#]
+    ]} gameState 
  * @return sum of corresponding board cells
  */
-const sumBoardLine = (line) => {
+const sumBoardLine = (line, gameState) => {
     // console.log('inside sumBoardLine, lines=', lines)
     return line
         // board cells run 1-9, gameState indices 0-8
