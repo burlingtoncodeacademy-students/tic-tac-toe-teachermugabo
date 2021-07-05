@@ -37,6 +37,7 @@
 // Global Variables
 let gameState = [[],[],[]] // 3x3 matrix to represent game state
 let gameOver = false
+let elpsedTimeInterval = null // to be set on start :-)
 
 // Global References to board pieces
 let gameStatus = document.getElementById('status') // reference to game status display
@@ -75,7 +76,7 @@ const PLAYER_X_STATE = 1
 /**
  * Name: Start Game
  * =================
- * Sets the state for starting a new game.
+ * Sets the state for starting a new game & start the clock
  * 
  * When the user
  * @param {*} event 
@@ -83,6 +84,7 @@ const PLAYER_X_STATE = 1
  const startGame = (event) => {
     gameStatus.textContent = "Player X's turn" // Player X starts first
     startBtn.disabled = "true" // disable 'Start Game' button to start the game
+    elpsedTimeInterval = startClock() // start counting & display elapsed time
 }
 
 /**
@@ -165,13 +167,61 @@ cells.forEach((cell) => cell.addEventListener("click", selectCell)) // When the 
 
 /* ------------ GAME HELPER FUNCTIONS ------------------- */
 
+
+/**
+ * Name: pad
+ * =========
+ * Front pads single digit numbers with '0'
+ * Soure: https://stackoverflow.com/questions/3605214/javascript-add-leading-zeroes-to-date
+ *
+ * @param {*} n - number to pad
+ * @returns padded number as string
+ */
+const pad = (n) => n < 10 ? '0'+ n : n
+
+// For example, 2 minutes shows up as 2:0 and
+// 2 minutes and single digit seconds, show up as 2:1, 2:2, etc...
+// need front padding for 2:0 => 2:00, 2:1 => 2:01q
+
+/**
+ * Name: displayTime
+ * =================
+ * Translate time in seconds into MM:SS format
+ *
+ *
+ * @param {*} seconds - time in seconds
+ * @returns formated time string
+ */
+const displayTime = (seconds) => (
+    `${pad(Math.floor(seconds / 60))}:${pad(seconds % 60)}`
+)
+
+/**
+ * Name: startClock
+ * ======================
+ * Start clock and track time since called.
+ *
+ * @returns interval - for clearing when game is done.
+ */
+const startClock = () => {
+    let seconds = 0;
+
+    // create interval object & assign to global var for later access
+    let interval = setInterval(() => {
+        seconds += 1 // inc time
+        timer.textContent = `Time elpased: ${displayTime(seconds)}` // update view
+    }, 1000)
+
+    return interval;
+}
+
 /**
  * Name: updateCell
  * ================
  * Given a cell, check the global gameStatus variable,
  * to determine who's move it is, and update the board
  * 
- * @param {*} cell 
+ * @param {*} cell
  */
 const updateCell = (cell) => {
     
@@ -211,27 +261,27 @@ const updateCell = (cell) => {
  * ===================
  * Called Given the turn has just ended
  * 
- * @param uses global param gameState
+ * * Uses global param gameState
  */
 const checkWinCondition = () => {
     console.log("check for win condition...")
     // check for winning condition - if there are three Xs in a row, column, or diagonal
     for(let line of boardLines) {
-        
+
         // player 'X' wins - condition: sum of board line equals 3
         if (sumBoardLine(line, gameState) === PLAYER_X_STATE * 3) {
             // And the app says "Congratulations! Player X wins!"
             gameStatus.textContent = 'Congrats! Player X wins'
             alert(gameStatus.textContent) // alert players of winner
-            
+
             // Then the system draws a line through the winning three cells
             endGame(line) // Game Ends
         }
         // player 'O' wins - condition: sum of board line equals -3
         else if (sumBoardLine(line, gameState) === PLAYER_O_STATE * 3) {
             // And the app says "Congratulations! Player O wins!"
-            alert(gameStatus.textContent) // alert players of winner
             gameStatus.textContent = 'Congrats! Player O wins' // update game status
+            alert(gameStatus.textContent) // alert players of winner
 
             // Then the system draws a line through the winning three cells
             endGame(line) // Game Ends
@@ -245,7 +295,7 @@ const checkWinCondition = () => {
         gameStatus.textContent = "Draw! Replay?"  // update game status
         // alert(gameStatus.textContent)
 
-        endGame()
+        endGame() // no winning line
     }
 }
 
@@ -271,13 +321,16 @@ const isBoardFull = () => {
  * =============
  * Call method to end the game (sets global variable gameOver)
  * Highlight the winning line if game was won (could've been a draw)
- * Update buttons to set user up for a replay :-) 
+ * Stop clock, and update buttons to set user up for a replay :-) 
  * 
  * @param {[#,#,#]} line 
  */
 const endGame = (line)  => {
     // highlight winning line, if there is one.     
     // if (line) highlightLine(line) 
+
+    // stop clock - by clearing interval
+    clearInterval(elpsedTimeInterval)
 
     gameOver = true // set global indicator to true
 
@@ -341,6 +394,10 @@ const sumBoardLine = (line, gameState) => {
     clearBoardCells() // clear the board
 
     gameOver = false // game's just about to start
+
+    // reset time
+    if (elpsedTimeInterval) clearInterval(clearInterval(elpsedTimeInterval)) // remove clock
+    timer.textContent = '' // clear time display
 
     // ensure start button is enabled & disable the rest. 
     if( startBtn.disabled ) startBtn.disabled = false
