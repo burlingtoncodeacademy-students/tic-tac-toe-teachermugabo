@@ -8,7 +8,7 @@
 // Story: Replay [done]
 // Story: Multiplayer [done]
 // TODO: Story: Names [not started]
-// TODO: Story: Timer [not started]
+// Story: Timer [done]
 // TODO: Story: Single-player, artificial stupidity [not started]
 
 
