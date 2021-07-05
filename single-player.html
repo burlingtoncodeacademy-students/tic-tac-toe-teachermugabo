@@ -8,16 +8,22 @@
   <link rel="stylesheet" href="/styles/main.css" />
 </head>
 <body>
+  <!-- whole page container  -->
   <div class="container">
+    <!-- link in header leads back to home page -->
     <header>
       <a href="/index.html"><h1>Tic Tac Toe</h1></a>
     </header>
+    <!-- nav on each page -->
     <nav>
       <a href="/multi-player.html">Multi Player</a>
       <a href="/index.html">Home</a>
     </nav>
+    <!-- main area -->
     <main>
+      <!-- game section - also styling container  -->
       <section class="game-container">
+        <!-- game title -->
         <h2>Single Player</h2>
         <h3 id="status">Click Start to Play</h3>
         <div class="black board">
@@ -34,6 +40,7 @@
           <div class="block" id="block8"></div>
           <div class="block" id="block9"></div>
         </div>
+        <!-- game buttons in styling container -->
         <div class="buttons">
           <button id="startBtn">Start</button>
           <button id="resetBtn">Reset</button>
@@ -41,12 +48,13 @@
         </div>
       </section>
     </main>
-
+    <!-- our copy left footer -->
     <footer>
       <p>Tic Tac Toe, Inc (Copyleft) 2021 - Absolutely No Rights Reserved.</p>
       <p>Teacher Mugabo @teachermugabo</p>
     </footer>
-    <script src="scripts/main.js"></script>
   </div>
+  <!-- bring in the magic -->
+  <script src="/scripts/main.js"></script>
 </body>
 </html>
