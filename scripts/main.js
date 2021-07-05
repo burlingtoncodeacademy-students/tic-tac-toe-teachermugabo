@@ -6,10 +6,11 @@
 // Story: Winning Condition [done]
 // Story: Reset [done]
 // Story: Replay [done]
-// TODO: Story: Multiplayer [done?] -- move functionality to multi-player.html
+// Story: Multiplayer [done]
 // TODO: Story: Names [not started]
+// TODO: Story: Timer [not started] -- where will I display it?
 // TODO: Story: Single-player [not started] -- random computer
-// TODO: Story: Timer [not started]
+
 
 // Project #3 Feedback
 // Need comments in body of HTML and more in CSS. [done]
