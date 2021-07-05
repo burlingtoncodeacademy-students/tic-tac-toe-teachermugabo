@@ -322,6 +322,7 @@ const sumBoardLine = (line, gameState) => {
  const clearBoardCells = () => {
     for(let cell of cells) {
         cell.textContent = ''
+        cell.classList.remove('occupied')
     }
 }
 
@@ -340,7 +341,9 @@ const sumBoardLine = (line, gameState) => {
         [0,0,0]] 
     clearBoardCells() // clear the board
 
-    // enable start button, disable the rest. 
+    gameOver = false // game's just about to start
+
+    // ensure start button is enabled & disable the rest. 
     if( startBtn.disabled ) startBtn.disabled = false
     resetBtn.disabled = "true" // disabled 
     replayBtn.disabled = "true" // disabled
