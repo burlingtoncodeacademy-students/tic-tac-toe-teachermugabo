@@ -161,12 +161,7 @@ const selectCell = (event) => {
 startBtn.addEventListener("click", startGame) // When the user clicks 'Start Game'
 replayBtn.addEventListener("click", replayGame) // When the user clicks 'Replay'
 resetBtn.addEventListener("click", resetGame) // When user clicks 'Reset'
-
-for(let cell of cells) {
-    cell.addEventListener('click', selectCell) // When the user selects a cell
-}
-
-// cells.forEach((cell) => cell.addEventListener("click", selectCell))
+cells.forEach((cell) => cell.addEventListener("click", selectCell)) // When the user selects a cell
 
 /* ------------ GAME HELPER FUNCTIONS ------------------- */
 
