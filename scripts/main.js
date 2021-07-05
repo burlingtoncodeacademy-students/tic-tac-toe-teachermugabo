@@ -8,8 +8,8 @@
 // Story: Replay [done]
 // Story: Multiplayer [done]
 // TODO: Story: Names [not started]
-// TODO: Story: Timer [not started] -- where will I display it?
-// TODO: Story: Single-player [not started] -- random computer
+// TODO: Story: Timer [not started]
+// TODO: Story: Single-player, artificial stupidity [not started]
 
 
 // Project #3 Feedback
@@ -40,6 +40,7 @@ let gameOver = false
 
 // Global References to board pieces
 let gameStatus = document.getElementById('status') // reference to game status display
+let timer = document.getElementById("timer") // show time elapsed till game over or reset
 let cells = document.querySelectorAll('.board>.block') // board cells (board blocks in CSS)
 
 // Global references to game buttons
@@ -164,6 +165,8 @@ resetBtn.addEventListener("click", resetGame) // When user clicks 'Reset'
 for(let cell of cells) {
     cell.addEventListener('click', selectCell) // When the user selects a cell
 }
+
+// cells.forEach((cell) => cell.addEventListener("click", selectCell))
 
 /* ------------ GAME HELPER FUNCTIONS ------------------- */
 
