@@ -14,7 +14,7 @@
 
 // Project #3 Feedback
 // Need comments in body of HTML and more in CSS. [done]
-// TODO: Switch Single player to be on right and Multi player on the left [not started]
+// Switch Single player to be on right and Multi player on the left [done]
 // TODO: The header and footer text is not centered. [not started]
 
 /* -------------- GENERAL GUIDING WISDOM ------------------- */
