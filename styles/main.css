@@ -1,0 +1,168 @@
+/* adding google fonts: 
+    https://www.w3schools.com/css/css_font_google.asp
+    https://stackoverflow.com/questions/147500/is-it-possible-to-include-one-css-file-in-another
+ */
+@import url("https://fonts.googleapis.com/css?family=Audiowide");
+
+body {
+    font-family: "Audiowide", sans-serif;
+}
+
+/* TODO what does this do? where is it? */
+.container {
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-rows: 1fr 5fr 1fr;
+    grid-template: 
+    "header header header"
+    "nav main ."
+    "footer footer footer";
+}
+
+/* Page header */
+header {
+    grid-area: header;
+    background-color: blanchedalmond;
+}
+
+/* Site's side navigation */
+nav {
+    grid-area: nav;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 1.5rem;
+}
+
+/* Side nav's links */
+nav>a {
+    background-color: khaki;
+}
+
+/* Site's main sections  */
+main {
+    grid-area: main;
+    background-color: burlywood;
+    justify-content: center;
+}
+
+/* TODO what's this exactly? Sections of the main section :-) */ */
+section {
+    text-align: center;
+}
+
+/* Site footer */
+footer {
+    grid-area: footer;
+    background-color: coral;
+}
+
+
+/* ------------- BUTTONS ----------------- */
+
+/* Styling container for the game buttons  */
+.buttons {
+    display: flex;
+    width: 300px;
+    margin: 5px;
+    justify-content: space-around;
+}
+
+/* actual game buttons */
+button {
+    width: 70px;
+}
+
+/* -------- Game Board -------- */
+
+/* Game container - has title, board, and buttons  */
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:space-around;
+}
+
+/* Game board  */
+.board {
+    display: grid;
+    /* how can we make this flexible? */
+    width: 300px;
+    height: 300px;
+    grid-template-columns: 1fr 1fr 1fr;
+    /* grid-template-columns: 
+        repeat(3,
+        minmax(50px, 1fr)); */
+    grid-template-rows: 1fr 1fr 1fr;
+    /* grid-template-rows: 
+        repeat(3,
+        minmax(50px, 1fr)); */
+}
+
+/* styling for board cells */
+.block {
+    border: 3px solid honeydew;    
+    font-size: 3rem;
+    font-weight: bold;
+    color: honeydew;
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+}
+
+/* Indicate on cells that action can be taken  */
+.block:hover {
+    cursor:pointer;
+    background-color:rgb(128, 79, 4);
+}
+
+/* indication 'no action' on occupied/filled cells  */
+.occupied:hover {
+    cursor:initial;
+    background-color: black;
+}
+
+
+/* Style tic tac toe board - remove all side borders  */
+#block1,
+#block2,
+#block3 {
+    border-top: none;
+}
+
+#block1,
+#block4,
+#block7 {
+    border-left: none;
+}
+
+#block3,
+#block6,
+#block9 {
+    border-right: none;
+}
+
+#block7,
+#block8,
+#block9 {
+    border-bottom: none;
+}
+
+/* ------- Utility Classes --------- */
+.black {
+    background-color: black;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right
+}
+
+/* ------- Media Screens ------- */
+/* TODO for mobile, turn board to grid w/
+    flexible dimensions that are % of width
+ */

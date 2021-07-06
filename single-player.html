@@ -5,8 +5,62 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Single Player</title>
+  <link rel="stylesheet" href="/styles/main.css" />
 </head>
 <body>
-  
+  <!-- whole page container  -->
+  <div class="container">
+    <!-- link in header leads back to home page -->
+    <header>
+      <a href="/index.html"><h1>Tic Tac Toe</h1></a>
+    </header>
+    <!-- nav on each page -->
+    <nav>
+      <a href="/multi-player.html">Multi Player</a>
+      <a href="/index.html">Home</a>
+    </nav>
+    <!-- main area -->
+    <main>
+      <!-- game section - also styling container  -->
+      <section class="game-container">
+        <!-- game title -->
+        <h2>Single Player</h2>
+        
+        <!-- display game status here -->
+        <h3 id="status">Click Start to Play</h3>
+        <!-- display time elapsed here -->
+        <div id="timer"></div>
+        
+        <!-- TIC-TAC-TOE-board  -->
+        <div class="black board">
+          <!-- top row 1 2 3 -->
+          <div class="block" id="block1"></div>
+          <div class="block" id="block2"></div>
+          <div class="block" id="block3"></div>
+          <!-- mid row 4 5 6 -->
+          <div class="block" id="block4"></div>
+          <div class="block" id="block5"></div>
+          <div class="block" id="block6"></div>
+          <!-- bottom row 7 8 9 -->
+          <div class="block" id="block7"></div>
+          <div class="block" id="block8"></div>
+          <div class="block" id="block9"></div>
+        </div>
+        <!-- game buttons in styling container -->
+        <div class="buttons">
+          <button id="startBtn">Start</button>
+          <button id="resetBtn">Reset</button>
+          <button id="replayBtn">Replay</button>
+        </div>
+      </section>
+    </main>
+    <!-- our copy left footer -->
+    <footer>
+      <p>Tic Tac Toe, Inc (Copyleft) 2021 - Absolutely No Rights Reserved.</p>
+      <p>Teacher Mugabo @teachermugabo</p>
+    </footer>
+  </div>
+  <!-- bring in the magic -->
+  <script src="/scripts/main.js"></script>
 </body>
 </html>
